@@ -3,895 +3,420 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STORE GAMER | PC Gamer & High-Tech au Maroc</title>
-    <!-- Tailwind CSS -->
+    <title>StoreGamer — Matériel Gaming & PC sur Mesure au Maroc</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        darkBg: '#0b0f19',
-                        darkCard: '#111827',
-                        darkBorder: '#1f2937',
-                        neonCyan: '#00f0ff',
-                        neonPurple: '#a855f7',
-                        neonGreen: '#22c55e',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'neon-cyan': '0 0 15px rgba(0, 240, 255, 0.4)',
-                        'neon-purple': '0 0 15px rgba(168, 85, 247, 0.4)',
-                        'neon-green': '0 0 15px rgba(34, 197, 94, 0.4)',
+                        brand: {
+                            50: '#f0f5ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#0f172a',
+                            accent: '#22c55e'
+                        }
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0f19;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b0f19;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1f2937;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #374151;
-        }
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .glow-border {
-            position: relative;
-        }
-        .glow-border::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            background: linear-gradient(45deg, #00f0ff, #a855f7);
-            border-radius: inherit;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .glow-border:hover::after {
-            opacity: 1;
-        }
-    </style>
 </head>
-<body class="bg-darkBg text-gray-100 flex flex-col min-h-screen">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
-    <div id="top-bar" class="bg-gradient-to-r from-purple-900/80 via-indigo-900/80 to-cyan-900/80 text-xs py-2 px-4 border-b border-white/10 text-gray-300">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-2">
-                <span class="bg-neonCyan/20 text-neonCyan px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider animate-pulse">Offre Limité</span>
-                <span>🔥 Livraison partout au Maroc — offerte dès 1 500 MAD</span>
-            </div>
-            <div class="flex items-center gap-6 text-xs">
-                <a href="tel:+212600000000" class="hover:text-neonCyan transition flex items-center gap-1.5"><i class="fa-solid fa-phone text-neonCyan"></i> +212 6 00 00 00 00</a>
-                <a href="#order-tracking" onclick="showToast('Suivi de commande disponible prochainement !')" class="hover:text-neonCyan transition"><i class="fa-solid fa-truck-fast mr-1"></i> Suivre ma commande</a>
-                <a href="#support" onclick="openWhatsApp('Bonjour, j\'ai une question sur vos produits !')" class="hover:text-neonCyan transition"><i class="fa-brands fa-whatsapp text-green-400 mr-1"></i> Support Client</a>
-            </div>
+    <!-- Top Announcement Bar -->
+    <div class="bg-indigo-900/60 border-b border-indigo-500/20 text-xs py-2 px-4 text-center text-indigo-200 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="flex items-center gap-2">
+            <span class="bg-indigo-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Promo</span>
+            <span>Livraison partout au Maroc — Offerte dès 1,500 MAD !</span>
+        </div>
+        <div class="hidden md:flex gap-4 items-center">
+            <a href="https://wa.me/212688400333" target="_blank" class="hover:text-white transition flex items-center gap-1">
+                <i class="fab fa-whatsapp text-green-400"></i> +212 6 88 40 03 33
+            </a>
+            <span>|</span>
+            <span>Oujda, Maroc</span>
         </div>
     </div>
 
-    <header class="sticky top-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-gray-800/80">
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
             
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-neonCyan to-neonPurple flex items-center justify-center font-black text-darkBg text-xl shadow-neon-cyan group-hover:scale-105 transition transform">
-                    <i class="fa-solid fa-gamepad"></i>
+            <a href="#" class="flex items-center gap-2 text-2xl font-black tracking-wider text-white">
+                <div class="w-10 h-10 bg-gradient-to-tr from-indigo-600 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                    <i class="fas fa-gamepad text-white text-xl"></i>
                 </div>
-                <div>
-                    <span class="text-xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-cyan-200 to-neonCyan">STORE</span>
-                    <span class="text-xl font-black tracking-wider text-neonPurple">GAMER</span>
-                    <span class="block text-[9px] tracking-widest text-gray-400 -mt-1 font-semibold">MAROC HARDWARE</span>
-                </div>
+                <span>STORE<span class="text-indigo-500">GAMER</span></span>
             </a>
 
-            <!-- Search Bar with Live Preview -->
-            <div class="relative flex-1 max-w-xl mx-4 hidden md:block">
-                <div class="relative">
-                    <input type="text" id="search-input" onkeyup="handleSearch(this.value)" placeholder="Rechercher un PC, composant, RTX 4070, Setup..." 
-                        class="w-full bg-gray-900/90 border border-gray-700/80 rounded-xl py-2.5 pl-10 pr-4 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-neonCyan focus:ring-1 focus:ring-neonCyan transition">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-400 text-sm"></i>
-                </div>
-                <!-- Search Live Results Popup -->
-                <div id="search-preview" class="hidden absolute top-full left-0 right-0 mt-2 bg-darkCard border border-gray-700 rounded-xl shadow-2xl p-2 z-50 max-h-96 overflow-y-auto">
-                    <!-- Populated via JS -->
-                </div>
+            <!-- Search Bar -->
+            <div class="hidden md:flex flex-1 max-w-md relative">
+                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Rechercher un PC, GPU, Écran..." class="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 pl-10 pr-4 text-sm text-slate-200 focus:outline-none focus:border-indigo-500 transition">
+                <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-sm"></i>
             </div>
 
-            <!-- Actions Header Right -->
-            <div class="flex items-center gap-4">
-                <button onclick="showToast('Connexion Espace Client bientôt disponible!')" class="hidden sm:flex items-center gap-2 text-sm text-gray-300 hover:text-neonCyan transition p-2 rounded-lg hover:bg-gray-800">
-                    <i class="fa-regular fa-user text-lg"></i>
-                    <span class="hidden lg:inline font-medium">Mon Compte</span>
-                </button>
-                
-                <button onclick="toggleFavoritesModal()" class="relative p-2 text-gray-300 hover:text-neonPurple transition rounded-lg hover:bg-gray-800">
-                    <i class="fa-regular fa-heart text-xl"></i>
-                    <span id="fav-count" class="absolute -top-1 -right-1 bg-neonPurple text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                </button>
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/212688400333" target="_blank" class="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-lg shadow-green-600/20">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>Contact WhatsApp</span>
+                </a>
 
-                <button onclick="toggleCartDrawer()" class="relative bg-gradient-to-r from-neonCyan/20 to-neonPurple/20 hover:from-neonCyan/30 hover:to-neonPurple/30 border border-neonCyan/40 px-3.5 py-2 rounded-xl flex items-center gap-2 transition group shadow-neon-cyan">
-                    <i class="fa-solid fa-cart-shopping text-neonCyan group-hover:scale-110 transition"></i>
-                    <span class="text-sm font-bold text-white hidden sm:inline">Panier</span>
-                    <span id="cart-count" class="bg-neonCyan text-darkBg text-xs font-black px-1.5 py-0.5 rounded-full">0</span>
+                <button onclick="toggleCart()" class="relative bg-slate-800 hover:bg-slate-700 text-white p-2.5 rounded-xl border border-slate-700 transition">
+                    <i class="fas fa-shopping-bag text-lg"></i>
+                    <span id="cartCount" class="absolute -top-2 -right-2 bg-indigo-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
-
-        <!-- Navigation Menu -->
-        <nav class="border-t border-gray-800/60 bg-darkBg/60 text-sm overflow-x-auto">
-            <div class="max-w-7xl mx-auto px-4 flex items-center gap-6 whitespace-nowrap py-2.5">
-                <a href="#pc-builder" class="text-neonCyan font-bold hover:text-cyan-300 flex items-center gap-1.5 px-2 py-1 rounded bg-neonCyan/10 border border-neonCyan/20">
-                    <i class="fa-solid fa-sliders"></i> Custom Configurator
-                </a>
-                <a href="#products" onclick="filterProducts('PC Gamer')" class="text-gray-300 hover:text-neonCyan transition font-medium">PC Gamer</a>
-                <a href="#products" onclick="filterProducts('PC par Jeux')" class="text-gray-300 hover:text-neonCyan transition font-medium">PC par Jeux (Valorant, GTA)</a>
-                <a href="#products" onclick="filterProducts('PC IA')" class="text-gray-300 hover:text-neonCyan transition font-medium">PC IA & Creator</a>
-                <a href="#products" onclick="filterProducts('Setup')" class="text-gray-300 hover:text-neonCyan transition font-medium">Setup Complet</a>
-                <a href="#products" onclick="filterProducts('Portables')" class="text-gray-300 hover:text-neonCyan transition font-medium">PC Portables</a>
-                <a href="#products" onclick="filterProducts('Composants')" class="text-gray-300 hover:text-neonCyan transition font-medium">Composants</a>
-                <a href="#products" onclick="filterProducts('Ecran')" class="text-gray-300 hover:text-neonCyan transition font-medium">Moniteurs</a>
-            </div>
-        </nav>
     </header>
 
-    <section class="relative py-8 px-4 overflow-hidden">
-        <div class="max-w-7xl mx-auto relative rounded-3xl overflow-hidden glass-panel border border-gray-800 bg-gradient-to-r from-gray-950 via-darkCard to-indigo-950/50 p-6 md:p-12 min-h-[420px] flex items-center">
-            
-            <!-- Animated Ambient Lights -->
-            <div class="absolute -top-24 -left-24 w-72 h-72 bg-neonCyan/20 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-neonPurple/20 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 
-            <div class="grid md:grid-cols-2 gap-8 items-center relative z-10 w-full">
-                <!-- Banner Text Content -->
-                <div class="space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neonPurple/10 border border-neonPurple/30 text-neonPurple text-xs font-semibold">
-                        <i class="fa-solid fa-bolt"></i> NOUVELLE BÊTE DE COURSE
-                    </div>
-                    <h1 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
-                        PC GAMER ULTRA <br>
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-neonCyan via-purple-300 to-neonPurple">RTX 4070 Ti SUPER</span>
-                    </h1>
-                    <p class="text-gray-300 text-sm md:text-base max-w-lg">
-                        Préparez-vous à dominer le jeu en 4K Ultra avec le processeur Intel Core i7 14700KF, 32GB DDR5 RGB et SSD NVMe 2TB High Speed.
-                    </p>
-
-                    <div class="flex items-baseline gap-3">
-                        <span class="text-3xl md:text-4xl font-black text-neonCyan">18,999 MAD</span>
-                        <span class="text-gray-500 line-through text-lg font-bold">21,500 MAD</span>
-                        <span class="bg-red-500/20 text-red-400 text-xs font-bold px-2 py-1 rounded">-12%</span>
-                    </div>
-
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <button onclick="addToCart(1)" class="bg-gradient-to-r from-neonCyan to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-darkBg font-extrabold px-6 py-3.5 rounded-xl shadow-neon-cyan flex items-center gap-2 transition transform active:scale-95">
-                            <i class="fa-solid fa-cart-plus text-lg"></i> Ajouter au Panier
-                        </button>
-                        <button onclick="quickBuyWhatsApp(1)" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-neon-green flex items-center gap-2 transition transform active:scale-95">
-                            <i class="fa-brands fa-whatsapp text-xl"></i> Commander sur WhatsApp
-                        </button>
-                    </div>
+        <!-- Hero Section Banner -->
+        <section class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 border border-slate-800 p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="space-y-6 max-w-xl">
+                <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    <i class="fas fa-fire"></i> Best-Seller Gaming PC
                 </div>
-
-                <!-- Banner Image & Specs Graphic -->
-                <div class="relative flex justify-center items-center">
-                    <div class="relative z-10 w-full max-w-md p-4 rounded-2xl bg-gray-900/60 border border-cyan-500/30 backdrop-blur-md shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=800&q=80" alt="PC Gamer Setup" class="rounded-xl w-full h-64 object-cover">
-                        
-                        <!-- Badges overlay -->
-                        <div class="grid grid-cols-3 gap-2 mt-4 text-center">
-                            <div class="p-2 rounded-lg bg-gray-800/80 border border-gray-700">
-                                <span class="block text-[10px] text-gray-400">GPU</span>
-                                <span class="text-xs font-bold text-neonCyan">RTX 4070Ti</span>
-                            </div>
-                            <div class="p-2 rounded-lg bg-gray-800/80 border border-gray-700">
-                                <span class="block text-[10px] text-gray-400">CPU</span>
-                                <span class="text-xs font-bold text-neonPurple">i7 14700KF</span>
-                            </div>
-                            <div class="p-2 rounded-lg bg-gray-800/80 border border-gray-700">
-                                <span class="block text-[10px] text-gray-400">RAM</span>
-                                <span class="text-xs font-bold text-white">32GB DDR5</span>
-                            </div>
-                        </div>
-                    </div>
+                <h1 class="text-4xl md:text-5xl font-black text-white leading-tight">
+                    PC GAMER ULTRA <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">RTX 4070 Ti SUPER</span>
+                </h1>
+                <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                    Préparez-vous à dominer en 2K & 4K Ultra avec le processeur Intel Core i7-14700KF, 32GB DDR5 RAM, et SSD 1TB NVMe.
+                </p>
+                <div class="flex items-center gap-4">
+                    <span class="text-3xl font-black text-green-400">18,999 MAD</span>
+                    <span class="text-slate-500 line-through text-lg">21,000 MAD</span>
+                </div>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <button onclick="addToCart('PC Gamer Ultra RTX 4070 Ti', 18999)" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-600/30 transition flex items-center gap-2">
+                        <i class="fas fa-shopping-cart"></i> Ajouter au Panier
+                    </button>
+                    <a href="https://wa.me/212688400333?text=Bonjour,%20je%20suis%20intéressé%20par%20le%20PC%20Gamer%20Ultra%20RTX%204070%20Ti" target="_blank" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-6 py-3 rounded-xl font-semibold transition flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-green-400"></i> Commander sur WhatsApp
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section class="max-w-7xl mx-auto px-4 py-4">
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-            <button onclick="filterProducts('PC Gamer')" class="glass-panel p-4 rounded-2xl border border-gray-800 hover:border-neonCyan hover:scale-105 transition group flex flex-col items-center text-center">
-                <div class="w-12 h-12 rounded-xl bg-neonCyan/10 text-neonCyan flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-desktop"></i>
-                </div>
-                <span class="text-sm font-bold text-gray-200">PC Gamer</span>
-                <span class="text-xs text-gray-500">Dès 4,500 MAD</span>
-            </button>
+            <!-- Hero Image Showcase -->
+            <div class="relative w-full md:w-1/2 flex justify-center">
+                <div class="w-72 h-72 md:w-96 md:h-96 bg-indigo-600/20 rounded-full blur-3xl absolute -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80" alt="PC Gamer Setup" class="rounded-2xl shadow-2xl border border-slate-700/50 object-cover w-full max-w-md">
+            </div>
+        </section>
 
-            <button onclick="filterProducts('Setup')" class="glass-panel p-4 rounded-2xl border border-gray-800 hover:border-neonPurple hover:scale-105 transition group flex flex-col items-center text-center">
-                <div class="w-12 h-12 rounded-xl bg-neonPurple/10 text-neonPurple flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-headset"></i>
-                </div>
-                <span class="text-sm font-bold text-gray-200">Setup Complet</span>
-                <span class="text-xs text-gray-500">Clavier + Ecran + PC</span>
-            </button>
-
-            <button onclick="filterProducts('Composants')" class="glass-panel p-4 rounded-2xl border border-gray-800 hover:border-cyan-400 hover:scale-105 transition group flex flex-col items-center text-center">
-                <div class="w-12 h-12 rounded-xl bg-cyan-400/10 text-cyan-400 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-microchip"></i>
-                </div>
-                <span class="text-sm font-bold text-gray-200">Composants</span>
-                <span class="text-xs text-gray-500">GPU, CPU, RAM...</span>
-            </button>
-
-            <button onclick="filterProducts('Ecran')" class="glass-panel p-4 rounded-2xl border border-gray-800 hover:border-emerald-400 hover:scale-105 transition group flex flex-col items-center text-center">
-                <div class="w-12 h-12 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-tv"></i>
-                </div>
-                <span class="text-sm font-bold text-gray-200">Moniteurs</span>
-                <span class="text-xs text-gray-500">144Hz & 240Hz</span>
-            </button>
-
-            <button onclick="filterProducts('Chaise')" class="glass-panel p-4 rounded-2xl border border-gray-800 hover:border-yellow-400 hover:scale-105 transition group flex flex-col items-center text-center col-span-2 sm:col-span-1">
-                <div class="w-12 h-12 rounded-xl bg-yellow-400/10 text-yellow-400 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">
-                    <i class="fa-solid fa-chair"></i>
-                </div>
-                <span class="text-sm font-bold text-gray-200">Chaise & Bureau</span>
-                <span class="text-xs text-gray-500">Ergonomique</span>
-            </button>
-        </div>
-    </section>
-
-    <section id="pc-builder" class="max-w-7xl mx-auto px-4 py-8">
-        <div class="glass-panel rounded-3xl p-6 md:p-8 border border-neonCyan/30 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+        <!-- Custom PC Configurator / Builder -->
+        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-800 pb-4 gap-2">
                 <div>
-                    <span class="text-neonCyan text-xs font-bold uppercase tracking-wider">⚡ PC Configurator</span>
-                    <h2 class="text-2xl md:text-3xl font-black">Montez votre PC Gamer Sur-Mesure</h2>
-                    <p class="text-gray-400 text-xs md:text-sm">Sélectionnez vos composants et obtenez votre devis personnalisé instantanément.</p>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-tools text-indigo-500"></i> Configurateur PC Gamer sur Mesure
+                    </h2>
+                    <p class="text-slate-400 text-sm">Choisissez vos composants et calculez le prix instantanément.</p>
                 </div>
-                <div class="bg-gray-900 border border-gray-700 px-6 py-3 rounded-2xl text-right">
-                    <span class="text-xs text-gray-400 block">Total Estimé</span>
-                    <span id="builder-total-price" class="text-2xl font-black text-neonCyan">0 MAD</span>
+                <span class="bg-indigo-900/50 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-lg border border-indigo-700/50">Montage & Test Gratuits</span>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- GPU Choice -->
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">1. Carte Graphique (GPU)</label>
+                    <select id="gpuSelect" onchange="updateConfigPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-indigo-500">
+                        <option value="3500">NVIDIA RTX 3060 12GB (+3,500 MAD)</option>
+                        <option value="5200" selected>NVIDIA RTX 4060 Ti 8GB (+5,200 MAD)</option>
+                        <option value="8900">NVIDIA RTX 4070 SUPER 12GB (+8,900 MAD)</option>
+                    </select>
+                </div>
+
+                <!-- CPU Choice -->
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">2. Processeur (CPU)</label>
+                    <select id="cpuSelect" onchange="updateConfigPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-indigo-500">
+                        <option value="1800">Intel Core i5-12400F (+1,800 MAD)</option>
+                        <option value="3200" selected>Intel Core i5-13600KF (+3,200 MAD)</option>
+                        <option value="4500">AMD Ryzen 7 7800X3D (+4,500 MAD)</option>
+                    </select>
+                </div>
+
+                <!-- RAM Choice -->
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">3. Mémoire RAM</label>
+                    <select id="ramSelect" onchange="updateConfigPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-indigo-500">
+                        <option value="600">16GB DDR4 3200MHz (+600 MAD)</option>
+                        <option value="1200" selected>32GB DDR5 6000MHz (+1,200 MAD)</option>
+                        <option value="2200">64GB DDR5 6000MHz (+2,200 MAD)</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- Custom Configurator Options Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" id="builder-options">
-                <!-- Dropdowns rendered via JS -->
-            </div>
-
-            <div class="flex flex-col sm:flex-row justify-end items-center gap-4 border-t border-gray-800 pt-6">
-                <button onclick="resetBuilder()" class="text-sm text-gray-400 hover:text-white transition">Réinitialiser la configuration</button>
-                <button onclick="orderBuilderWhatsApp()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold px-6 py-3 rounded-xl flex items-center justify-center gap-2 shadow-neon-green transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Commander cette config sur WhatsApp
+            <!-- Configurator Summary Footer -->
+            <div class="flex flex-col sm:flex-row items-center justify-between bg-slate-950 p-4 rounded-xl border border-slate-800 gap-4">
+                <div>
+                    <span class="text-xs text-slate-400">Total Configuration Estimé:</span>
+                    <div id="configPriceDisplay" class="text-2xl font-black text-green-400">9,600 MAD</div>
+                </div>
+                <button onclick="addCustomPCToCart()" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-bold transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Commander cette config via WhatsApp
                 </button>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="products" class="max-w-7xl mx-auto px-4 py-8 flex-1">
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <!-- Product Catalogue Grid -->
+        <section class="space-y-6">
+            <div class="flex items-center justify-between">
+                <h2 class="text-2xl font-bold text-white">Nos Produits & Setups Gaming</h2>
+                <span class="text-slate-400 text-sm">8 Articles Disponibles</span>
+            </div>
+
+            <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Product 1 -->
+                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80" alt="PC Starter" class="w-full h-44 object-cover rounded-xl mb-4">
+                        <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">PC Gamer</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Setup Gamer Starter i5</h3>
+                        <p class="text-xs text-slate-400 mt-1">Intel i5-12400F, GTX 1650 4GB, 16GB RAM, 512GB SSD</p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
+                        <span class="text-xl font-black text-green-400">5,499 MAD</span>
+                        <button onclick="addToCart('Setup Gamer Starter i5', 5499)" class="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 rounded-xl transition">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80" alt="ECRAN GAMING" class="w-full h-44 object-cover rounded-xl mb-4">
+                        <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Moniteur</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Ecran Gaming 27" 165Hz</h3>
+                        <p class="text-xs text-slate-400 mt-1">IPS 1ms Full HD 1080p, FreeSync & G-Sync</p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
+                        <span class="text-xl font-black text-green-400">1,899 MAD</span>
+                        <button onclick="addToCart('Ecran Gaming 27 165Hz', 1899)" class="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 rounded-xl transition">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1616588589676-63b3d7846232?auto=format&fit=crop&w=400&q=80" alt="RTX 4060 Ti" class="w-full h-44 object-cover rounded-xl mb-4">
+                        <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Composant</span>
+                        <h3 class="text-lg font-bold text-white mt-1">NVIDIA RTX 4060 Ti 8GB</h3>
+                        <p class="text-xs text-slate-400 mt-1">MSI Ventus 2X Black OC GDDR6</p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
+                        <span class="text-xl font-black text-green-400">4,899 MAD</span>
+                        <button onclick="addToCart('NVIDIA RTX 4060 Ti 8GB', 4899)" class="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 rounded-xl transition">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=400&q=80" alt="Chaise Gamer" class="w-full h-44 object-cover rounded-xl mb-4">
+                        <span class="text-[10px] font-bold text-indigo-400 uppercase tracking-widest">Mobilier</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Chaise Gaming Ergonomique</h3>
+                        <p class="text-xs text-slate-400 mt-1">Coussin lombaire, accoudoirs 3D, inclinable 180°</p>
+                    </div>
+                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
+                        <span class="text-xl font-black text-green-400">1,749 MAD</span>
+                        <button onclick="addToCart('Chaise Gaming Ergonomique', 1749)" class="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 rounded-xl transition">
+                            <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Slide-over Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex justify-end">
+        <div class="w-full max-w-md bg-slate-900 h-full p-6 flex flex-col justify-between border-l border-slate-800 shadow-2xl">
             <div>
-                <h2 class="text-2xl font-black text-white">Nos Offres Gamer & Composants</h2>
-                <p class="text-gray-400 text-xs">Explorez les meilleurs prix du marché marocain</p>
-            </div>
-
-            <!-- Filter Tabs -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 text-xs">
-                <button onclick="filterProducts('All')" class="filter-tab active bg-neonCyan text-darkBg font-bold px-4 py-2 rounded-xl border border-neonCyan transition">Tous</button>
-                <button onclick="filterProducts('PC Gamer')" class="filter-tab bg-gray-900 text-gray-300 font-bold px-4 py-2 rounded-xl border border-gray-800 hover:border-neonCyan transition">PC Gamer</button>
-                <button onclick="filterProducts('PC par Jeux')" class="filter-tab bg-gray-900 text-gray-300 font-bold px-4 py-2 rounded-xl border border-gray-800 hover:border-neonCyan transition">PC par Jeux</button>
-                <button onclick="filterProducts('PC IA')" class="filter-tab bg-gray-900 text-gray-300 font-bold px-4 py-2 rounded-xl border border-gray-800 hover:border-neonCyan transition">PC IA & Creator</button>
-                <button onclick="filterProducts('Composants')" class="filter-tab bg-gray-900 text-gray-300 font-bold px-4 py-2 rounded-xl border border-gray-800 hover:border-neonCyan transition">Composants</button>
-            </div>
-        </div>
-
-        <!-- Product Grid -->
-        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Dynamically populated via JavaScript -->
-        </div>
-    </section>
-
-    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" onclick="toggleCartDrawer()"></div>
-        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-darkCard border-l border-gray-800 flex flex-col shadow-2xl">
-                
-                <!-- Drawer Header -->
-                <div class="p-6 border-b border-gray-800 flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-bag-shopping text-neonCyan text-xl"></i>
-                        <h2 class="text-lg font-black text-white">Mon Panier</h2>
-                    </div>
-                    <button onclick="toggleCartDrawer()" class="text-gray-400 hover:text-white p-2">
-                        <i class="fa-solid fa-xmark text-xl"></i>
-                    </button>
+                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                        <i class="fas fa-shopping-bag text-indigo-500"></i> Mon Panier
+                    </h3>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-white text-xl">&times;</button>
                 </div>
 
-                <!-- Free Delivery Progress Bar -->
-                <div class="p-4 bg-gray-900/80 border-b border-gray-800">
-                    <div id="free-shipping-text" class="text-xs text-gray-300 mb-1.5 font-medium">
-                        Ajoutez <span id="shipping-remaining" class="text-neonCyan font-bold">1 500 MAD</span> de plus pour la livraison gratuite!
-                    </div>
-                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
-                        <div id="shipping-bar" class="bg-gradient-to-r from-neonCyan to-neonPurple h-full transition-all duration-300" style="width: 0%"></div>
+                <!-- Free shipping progress -->
+                <div class="mt-4 bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
+                    <span id="shippingText">Livraison offerte dès 1,500 MAD !</span>
+                    <div class="w-full bg-slate-800 h-2 rounded-full mt-2 overflow-hidden">
+                        <div id="shippingBar" class="bg-indigo-500 h-full w-0 transition-all duration-300"></div>
                     </div>
                 </div>
 
-                <!-- Cart Items Container -->
-                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <!-- Populated via JS -->
-                </div>
-
-                <!-- Cart Footer / WhatsApp Checkout -->
-                <div class="p-6 border-t border-gray-800 bg-gray-950 space-y-4">
-                    <div class="flex justify-between text-sm">
-                        <span class="text-gray-400">Sous-total</span>
-                        <span id="cart-subtotal" class="font-bold text-white">0 MAD</span>
-                    </div>
-                    <div class="flex justify-between text-sm">
-                        <span class="text-gray-400">Livraison (Maroc)</span>
-                        <span id="cart-shipping-fee" class="font-bold text-neonGreen">Gratuit</span>
-                    </div>
-                    <div class="flex justify-between text-lg font-black border-t border-gray-800 pt-3">
-                        <span>Total</span>
-                        <span id="cart-total" class="text-neonCyan">0 MAD</span>
-                    </div>
-
-                    <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold py-3.5 rounded-xl shadow-neon-green flex items-center justify-center gap-2 transition active:scale-95">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> Commander par WhatsApp
-                    </button>
-                    <p class="text-[10px] text-center text-gray-500">Paiement à la livraison partout au Maroc après vérification du produit.</p>
+                <div id="cartItemsList" class="mt-6 space-y-4 max-h-[50vh] overflow-y-auto pr-2">
+                    <p class="text-slate-500 text-center py-8 text-sm">Votre panier est vide.</p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div id="fav-modal" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="toggleFavoritesModal()"></div>
-        <div class="relative top-20 max-w-lg mx-auto bg-darkCard border border-gray-800 rounded-3xl p-6 shadow-2xl">
-            <div class="flex items-center justify-between pb-4 border-b border-gray-800">
-                <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-heart text-neonPurple"></i> Mes Favoris
-                </h3>
-                <button onclick="toggleFavoritesModal()" class="text-gray-400 hover:text-white">
-                    <i class="fa-solid fa-xmark text-lg"></i>
+            <!-- Checkout Footer -->
+            <div class="border-t border-slate-800 pt-4 space-y-4">
+                <div class="flex items-center justify-between text-lg font-bold text-white">
+                    <span>Total:</span>
+                    <span id="cartTotalPrice" class="text-green-400 text-xl">0 MAD</span>
+                </div>
+
+                <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-green-600/20 transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i> Passager la commande via WhatsApp
                 </button>
             </div>
-            <div id="fav-items" class="py-4 space-y-3 max-h-80 overflow-y-auto">
-                <!-- Populated via JS -->
-            </div>
         </div>
     </div>
 
-    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-gray-900 border border-neonCyan text-white text-sm font-semibold px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <i class="fa-solid fa-circle-check text-neonCyan text-lg"></i>
-        <span id="toast-message">Notification</span>
-    </div>
-
-    <footer class="bg-gray-950 border-t border-gray-800 mt-12 py-12 text-xs text-gray-400">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-20 py-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
             <div class="space-y-3">
-                <a href="#" class="flex items-center gap-2">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-neonCyan to-neonPurple flex items-center justify-center font-black text-darkBg text-sm">
-                        <i class="fa-solid fa-gamepad"></i>
-                    </div>
-                    <span class="text-base font-black text-white">STORE GAMER</span>
-                </a>
-                <p class="leading-relaxed text-gray-400">Le spécialiste n°1 du matériel High-Tech, PC Gamer et composants informatiques au Maroc. Assemblage sur-mesure et livraison à domicile.</p>
+                <div class="text-white font-bold text-lg">STOREGAMER</div>
+                <p>Le spécialiste du matériel Gaming & PC sur mesure au Maroc avec livraison rapide à domicile.</p>
             </div>
-
             <div>
-                <h4 class="text-white font-bold text-sm mb-3">Catégories Préférées</h4>
-                <ul class="space-y-2">
-                    <li><a href="#products" onclick="filterProducts('PC Gamer')" class="hover:text-neonCyan transition">PC Gamer Ultra</a></li>
-                    <li><a href="#products" onclick="filterProducts('PC par Jeux')" class="hover:text-neonCyan transition">PC Configuré par Jeux</a></li>
-                    <li><a href="#products" onclick="filterProducts('PC IA')" class="hover:text-neonCyan transition">PC Workstation IA & 3D</a></li>
-                    <li><a href="#products" onclick="filterProducts('Composants')" class="hover:text-neonCyan transition">Cartes Graphiques RTX 4080 / 4090</a></li>
-                </ul>
+                <div class="text-white font-bold mb-3">Service Client</div>
+                <p>WhatsApp: +212 6 88 40 03 33</p>
+                <p>Localisation: Oujda, Maroc</p>
             </div>
-
             <div>
-                <h4 class="text-white font-bold text-sm mb-3">Service Client</h4>
-                <ul class="space-y-2">
-                    <li><a href="tel:+212600000000" class="hover:text-neonCyan transition">Tél: +212 6 00 00 00 00</a></li>
-                    <li><a href="#" onclick="openWhatsApp('Demande d\'assistance')" class="hover:text-neonCyan transition">WhatsApp Direct</a></li>
-                    <li><span class="text-gray-500">Horaires: 7j/7 de 09h à 20h</span></li>
-                    <li><span class="text-gray-500">Livraison partout au Maroc (Casablanca, Rabat, Oujda, Marrakech...)</span></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold text-sm mb-3">Modes de Paiement</h4>
-                <p class="mb-3 text-gray-400">Paiement en espèces ou virement à la livraison.</p>
-                <div class="flex items-center gap-3 text-2xl text-gray-400">
-                    <i class="fa-solid fa-money-bill-wave hover:text-emerald-400 transition"></i>
-                    <i class="fa-solid fa-truck-ramp-box hover:text-neonCyan transition"></i>
-                    <i class="fa-solid fa-shield-halved hover:text-neonPurple transition"></i>
-                </div>
+                <div class="text-white font-bold mb-3">Livraison</div>
+                <p>Oujda, Nador, Berkane, Casablanca, Rabat, Fès, Marrakech et partout au Maroc.</p>
             </div>
         </div>
-
-        <div class="max-w-7xl mx-auto px-4 border-t border-gray-900 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center text-gray-500">
-            <p>© 2026 Store Gamer Maroc. Tous droits réservés.</p>
-            <div class="flex gap-4 mt-2 sm:mt-0">
-                <a href="#" class="hover:text-neonCyan"><i class="fa-brands fa-instagram text-base"></i></a>
-                <a href="#" class="hover:text-neonCyan"><i class="fa-brands fa-facebook text-base"></i></a>
-                <a href="#" class="hover:text-neonCyan"><i class="fa-brands fa-tiktok text-base"></i></a>
-            </div>
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-slate-800 text-center text-slate-500">
+            © 2026 StoreGamer. Tous droits réservés.
         </div>
     </footer>
 
+    <!-- Interactive JavaScript Engine -->
     <script>
-        // Sample Products Database
-        const productsDatabase = [
-            {
-                id: 1,
-                name: "PC GAMER ULTRA RTX 4070 Ti SUPER",
-                category: "PC Gamer",
-                subCategory: "PC par Jeux",
-                price: 18999,
-                oldPrice: 21500,
-                badge: "Top Vente",
-                image: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80",
-                specs: ["Intel i7 14700KF", "RTX 4070 Ti SUPER 16GB", "32GB DDR5 RGB", "1TB SSD NVMe Gen4"]
-            },
-            {
-                id: 2,
-                name: "PC GAMER GAMING ENTRY RTX 3060",
-                category: "PC Gamer",
-                subCategory: "PC par Jeux",
-                price: 6499,
-                oldPrice: 7200,
-                badge: "Budget King",
-                image: "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=500&q=80",
-                specs: ["Intel i5 12400F", "RTX 3060 12GB", "16GB DDR4", "512GB SSD NVMe"]
-            },
-            {
-                id: 3,
-                name: "WORKSTATION IA & CREATOR RTX 4090",
-                category: "PC IA",
-                subCategory: "PC IA",
-                price: 38999,
-                oldPrice: 42000,
-                badge: "Deep Learning",
-                image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80",
-                specs: ["Intel i9 14900KS", "RTX 4090 24GB", "64GB DDR5 6000MHz", "2TB SSD NVMe Gen4"]
-            },
-            {
-                id: 4,
-                name: "PACK SETUP COMPLET GAMER 144Hz",
-                category: "Setup",
-                subCategory: "Setup",
-                price: 9999,
-                oldPrice: 11500,
-                badge: "Pack Complet",
-                image: "https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?auto=format&fit=crop&w=500&q=80",
-                specs: ["PC i5 + RTX 4060", "Ecran 24\" 144Hz IPS", "Pack Clavier/Souris RGB", "Tapis XL"]
-            },
-            {
-                id: 5,
-                name: "ASUS ROG STRIX RTX 4080 SUPER 16GB",
-                category: "Composants",
-                subCategory: "Composants",
-                price: 13499,
-                oldPrice: 14999,
-                badge: "Composant",
-                image: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=500&q=80",
-                specs: ["16GB GDDR6X", "DLSS 3.5 Support", "Triple Fan Cooling", "RGB Aura Sync"]
-            },
-            {
-                id: 6,
-                name: "MONITEUR GAMING 27\" 165Hz IPS 1ms",
-                category: "Ecran",
-                subCategory: "Ecran",
-                price: 2199,
-                oldPrice: 2600,
-                badge: "Offre Spéciale",
-                image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=80",
-                specs: ["Dalle IPS 27 Pouces", "165Hz - 1ms G-Sync", "Full HD 1080p", "Pied Ajustable"]
-            },
-            {
-                id: 7,
-                name: "CHAISE GAMING ERGONOMIQUE RGB",
-                category: "Chaise",
-                subCategory: "Chaise",
-                price: 1799,
-                oldPrice: 2100,
-                badge: "Confort",
-                image: "https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=500&q=80",
-                specs: ["Coussin Lombaire", "Inclinaison 180°", "Accoudoirs 3D", "Éclairage RGB USB"]
-            },
-            {
-                id: 8,
-                name: "PC PORTABLE GAMER RTX 4060 i7",
-                category: "Portables",
-                subCategory: "Portables",
-                price: 12499,
-                oldPrice: 13999,
-                badge: "Laptop",
-                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=500&q=80",
-                specs: ["Intel i7 13620H", "RTX 4060 8GB", "16GB DDR5", "15.6\" 144Hz"]
-            }
-        ];
-
-        // Configurator Options Data
-        const builderData = {
-            cpu: [
-                { id: "cpu1", name: "Intel Core i5-12400F", price: 1400 },
-                { id: "cpu2", name: "Intel Core i7-14700KF", price: 4200 },
-                { id: "cpu3", name: "AMD Ryzen 7 7800X3D", price: 4800 }
-            ],
-            gpu: [
-                { id: "gpu1", name: "NVIDIA RTX 3060 12GB", price: 3200 },
-                { id: "gpu2", name: "NVIDIA RTX 4060 Ti 8GB", price: 4900 },
-                { id: "gpu3", name: "NVIDIA RTX 4070 Ti SUPER 16GB", price: 10500 }
-            ],
-            ram: [
-                { id: "ram1", name: "16GB (2x8GB) DDR4 3200MHz", price: 450 },
-                { id: "ram2", name: "32GB (2x16GB) DDR5 6000MHz RGB", price: 1300 },
-                { id: "ram3", name: "64GB (2x32GB) DDR5 6000MHz", price: 2600 }
-            ]
-        };
-
         let cart = [];
-        let favorites = [];
-        let currentFilter = 'All';
 
-        // Initialize App
-        window.onload = function() {
-            renderProducts();
-            initBuilder();
-            updateCartUI();
-        };
-
-        // Render Products Grid
-        function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = '';
-
-            const filtered = currentFilter === 'All' 
-                ? productsDatabase 
-                : productsDatabase.filter(p => p.category === currentFilter || p.subCategory === currentFilter);
-
-            filtered.forEach(p => {
-                const card = document.createElement('div');
-                card.className = "glass-panel rounded-2xl p-4 border border-gray-800 hover:border-neonCyan transition duration-300 flex flex-col justify-between group";
-                
-                const isFav = favorites.includes(p.id);
-
-                card.innerHTML = `
-                    <div>
-                        <div class="relative overflow-hidden rounded-xl mb-3 bg-gray-950">
-                            <img src="${p.image}" alt="${p.name}" class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-                            <span class="absolute top-2 left-2 bg-neonCyan text-darkBg text-[10px] font-extrabold px-2 py-0.5 rounded-md uppercase">
-                                ${p.badge}
-                            </span>
-                            <button onclick="toggleFav(${p.id})" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-darkBg/80 backdrop-blur-md flex items-center justify-center text-sm ${isFav ? 'text-neonPurple' : 'text-gray-400'} hover:text-neonPurple transition">
-                                <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
-                            </button>
-                        </div>
-                        <h3 class="font-extrabold text-sm text-gray-100 line-clamp-2 mb-2 group-hover:text-neonCyan transition">${p.name}</h3>
-                        
-                        <ul class="text-[11px] text-gray-400 space-y-1 mb-4">
-                            ${p.specs.map(spec => `<li class="flex items-center gap-1.5"><i class="fa-solid fa-check text-neonCyan text-[9px]"></i> ${spec}</li>`).join('')}
-                        </ul>
-                    </div>
-
-                    <div>
-                        <div class="flex items-baseline gap-2 mb-3">
-                            <span class="text-xl font-black text-neonCyan">${p.price.toLocaleString()} MAD</span>
-                            ${p.oldPrice ? `<span class="text-xs text-gray-500 line-through">${p.oldPrice.toLocaleString()} MAD</span>` : ''}
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="addToCart(${p.id})" class="bg-gray-800 hover:bg-neonCyan hover:text-darkBg text-gray-200 text-xs font-bold py-2.5 rounded-xl border border-gray-700 transition flex items-center justify-center gap-1.5">
-                                <i class="fa-solid fa-cart-plus"></i> Panier
-                            </button>
-                            <button onclick="quickBuyWhatsApp(${p.id})" class="bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white text-xs font-bold py-2.5 rounded-xl border border-emerald-500/30 transition flex items-center justify-center gap-1">
-                                <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
+        function updateConfigPrice() {
+            const gpu = parseInt(document.getElementById('gpuSelect').value);
+            const cpu = parseInt(document.getElementById('cpuSelect').value);
+            const ram = parseInt(document.getElementById('ramSelect').value);
+            const total = gpu + cpu + ram;
+            document.getElementById('configPriceDisplay').innerText = total.toLocaleString() + ' MAD';
         }
 
-        // Filter Functionality
-        function filterProducts(category) {
-            currentFilter = category;
-            
-            // Update Tab Active Styling
-            document.querySelectorAll('.filter-tab').forEach(tab => {
-                if(tab.innerText.includes(category) || (category === 'All' && tab.innerText === 'Tous')) {
-                    tab.className = "filter-tab active bg-neonCyan text-darkBg font-bold px-4 py-2 rounded-xl border border-neonCyan transition";
-                } else {
-                    tab.className = "filter-tab bg-gray-900 text-gray-300 font-bold px-4 py-2 rounded-xl border border-gray-800 hover:border-neonCyan transition";
-                }
-            });
+        function addCustomPCToCart() {
+            const gpuText = document.getElementById('gpuSelect').options[document.getElementById('gpuSelect').selectedIndex].text;
+            const cpuText = document.getElementById('cpuSelect').options[document.getElementById('cpuSelect').selectedIndex].text;
+            const ramText = document.getElementById('ramSelect').options[document.getElementById('ramSelect').selectedIndex].text;
+            const price = parseInt(document.getElementById('gpuSelect').value) + parseInt(document.getElementById('cpuSelect').value) + parseInt(document.getElementById('ramSelect').value);
 
-            renderProducts();
+            const textMsg = `Bonjour StoreGamer, je souhaite commander une configuration sur mesure:%0A- GPU: ${gpuText}%0A- CPU: ${cpuText}%0A- RAM: ${ramText}%0APrix Total: ${price} MAD`;
+            window.open(`https://wa.me/212688400333?text=${textMsg}`, '_blank');
         }
 
-        // Search Bar Handling
-        function handleSearch(query) {
-            const preview = document.getElementById('search-preview');
-            if(!query.trim()) {
-                preview.classList.add('hidden');
-                return;
-            }
-
-            const matches = productsDatabase.filter(p => p.name.toLowerCase().includes(query.toLowerCase()));
-            
-            if(matches.length === 0) {
-                preview.innerHTML = `<div class="p-3 text-xs text-gray-400 text-center">Aucun produit trouvé pour "${query}"</div>`;
-            } else {
-                preview.innerHTML = matches.map(p => `
-                    <div onclick="addToCart(${p.id}); document.getElementById('search-preview').classList.add('hidden');" class="flex items-center gap-3 p-2 hover:bg-gray-800 rounded-lg cursor-pointer transition">
-                        <img src="${p.image}" class="w-10 h-10 rounded object-cover">
-                        <div class="flex-1">
-                            <div class="text-xs font-bold text-white">${p.name}</div>
-                            <div class="text-[10px] text-neonCyan font-bold">${p.price} MAD</div>
-                        </div>
-                        <i class="fa-solid fa-plus text-xs text-gray-400"></i>
-                    </div>
-                `).join('');
-            }
-            preview.classList.remove('hidden');
-        }
-
-        // Shopping Cart Functions
-        function addToCart(productId) {
-            const product = productsDatabase.find(p => p.id === productId);
-            const existing = cart.find(item => item.id === productId);
-
+        function addToCart(title, price) {
+            const existing = cart.find(item => item.title === title);
             if(existing) {
-                existing.quantity += 1;
+                existing.qty += 1;
             } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-
-            updateCartUI();
-            showToast(`${product.name} ajouté au panier!`);
-        }
-
-        function updateQuantity(productId, delta) {
-            const item = cart.find(i => i.id === productId);
-            if(item) {
-                item.quantity += delta;
-                if(item.quantity <= 0) {
-                    cart = cart.filter(i => i.id !== productId);
-                }
+                cart.push({ title, price, qty: 1 });
             }
             updateCartUI();
+            toggleCart(true);
         }
 
         function updateCartUI() {
-            const countElem = document.getElementById('cart-count');
-            const itemsElem = document.getElementById('cart-items');
-            const subtotalElem = document.getElementById('cart-subtotal');
-            const totalElem = document.getElementById('cart-total');
-            const shippingBar = document.getElementById('shipping-bar');
-            const shippingText = document.getElementById('shipping-remaining');
+            const list = document.getElementById('cartItemsList');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotalPrice = document.getElementById('cartTotalPrice');
+            const shippingBar = document.getElementById('shippingBar');
 
-            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            countElem.innerText = totalCount;
-            subtotalElem.innerText = `${subtotal.toLocaleString()} MAD`;
-            totalElem.innerText = `${subtotal.toLocaleString()} MAD`;
+            let total = 0;
+            let count = 0;
 
-            // Free Shipping Calculator
-            const threshold = 1500;
-            const progress = Math.min((subtotal / threshold) * 100, 100);
-            shippingBar.style.width = `${progress}%`;
-            
-            if(subtotal >= threshold) {
-                shippingText.innerHTML = `<span class="text-neonGreen font-bold">Félicitations ! Vous bénéficiez de la livraison GRATUITE!</span>`;
-            } else {
-                const remaining = threshold - subtotal;
-                shippingText.innerHTML = `Ajoutez <span class="text-neonCyan font-bold">${remaining.toLocaleString()} MAD</span> de plus pour la livraison offerte!`;
-            }
-
-            // Render Cart Items
             if(cart.length === 0) {
-                itemsElem.innerHTML = `
-                    <div class="text-center py-12 text-gray-500">
-                        <i class="fa-solid fa-cart-flatbed text-4xl mb-3 block"></i>
-                        <p class="text-sm">Votre panier est actuellement vide.</p>
-                    </div>
-                `;
+                list.innerHTML = `<p class="text-slate-500 text-center py-8 text-sm">Votre panier est vide.</p>`;
             } else {
-                itemsElem.innerHTML = cart.map(item => `
-                    <div class="flex items-center gap-3 bg-gray-900/60 p-3 rounded-2xl border border-gray-800">
-                        <img src="${item.image}" class="w-16 h-16 rounded-xl object-cover">
-                        <div class="flex-1">
-                            <h4 class="text-xs font-bold text-white line-clamp-1">${item.name}</h4>
-                            <span class="text-xs text-neonCyan font-black block">${(item.price * item.quantity).toLocaleString()} MAD</span>
-                            <div class="flex items-center gap-2 mt-2">
-                                <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 rounded bg-gray-800 hover:bg-gray-700 text-xs flex items-center justify-center">-</button>
-                                <span class="text-xs font-bold">${item.quantity}</span>
-                                <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 rounded bg-gray-800 hover:bg-gray-700 text-xs flex items-center justify-center">+</button>
-                            </div>
-                        </div>
-                        <button onclick="updateQuantity(${item.id}, -${item.quantity})" class="text-gray-500 hover:text-red-400 p-2">
-                            <i class="fa-regular fa-trash-can text-sm"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-        }
-
-        function toggleCartDrawer() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('hidden');
-        }
-
-        // Favorites Handling
-        function toggleFav(id) {
-            if(favorites.includes(id)) {
-                favorites = favorites.filter(favId => favId !== id);
-                showToast("Produit retiré des favoris");
-            } else {
-                favorites.push(id);
-                showToast("Produit ajouté aux favoris!");
-            }
-            document.getElementById('fav-count').innerText = favorites.length;
-            renderProducts();
-            renderFavs();
-        }
-
-        function toggleFavoritesModal() {
-            const modal = document.getElementById('fav-modal');
-            modal.classList.toggle('hidden');
-            renderFavs();
-        }
-
-        function renderFavs() {
-            const container = document.getElementById('fav-items');
-            const favProducts = productsDatabase.filter(p => favorites.includes(p.id));
-
-            if(favProducts.length === 0) {
-                container.innerHTML = `<p class="text-xs text-gray-500 text-center py-6">Aucun favori enregistré pour le moment.</p>`;
-            } else {
-                container.innerHTML = favProducts.map(p => `
-                    <div class="flex items-center justify-between bg-gray-900 p-3 rounded-xl border border-gray-800">
-                        <div class="flex items-center gap-3">
-                            <img src="${p.image}" class="w-12 h-12 rounded object-cover">
+                list.innerHTML = cart.map((item, idx) => {
+                    total += item.price * item.qty;
+                    count += item.qty;
+                    return `
+                        <div class="flex items-center justify-between bg-slate-950 p-3 rounded-xl border border-slate-800">
                             <div>
-                                <div class="text-xs font-bold text-white">${p.name}</div>
-                                <div class="text-xs text-neonCyan font-bold">${p.price} MAD</div>
+                                <div class="text-sm font-semibold text-white">${item.title}</div>
+                                <div class="text-xs text-green-400">${item.price.toLocaleString()} MAD</div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 bg-slate-800 text-white rounded font-bold">-</button>
+                                <span class="text-sm font-bold text-white">${item.qty}</span>
+                                <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 bg-slate-800 text-white rounded font-bold">+</button>
                             </div>
                         </div>
-                        <button onclick="addToCart(${p.id})" class="bg-neonCyan text-darkBg text-xs font-bold px-3 py-1.5 rounded-lg">
-                            Ajouter
-                        </button>
-                    </div>
-                `).join('');
+                    `;
+                }).join('');
             }
+
+            cartCount.innerText = count;
+            cartTotalPrice.innerText = total.toLocaleString() + ' MAD';
+
+            let shipProgress = Math.min((total / 1500) * 100, 100);
+            shippingBar.style.width = shipProgress + '%';
         }
 
-        // Custom PC Builder Configurator Logic
-        function initBuilder() {
-            const container = document.getElementById('builder-options');
-            container.innerHTML = `
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">1. Processeur (CPU)</label>
-                    <select id="builder-cpu" onchange="calculateBuilderTotal()" class="w-full bg-gray-900 border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:border-neonCyan outline-none">
-                        ${builderData.cpu.map(item => `<option value="${item.price}">${item.name} (+${item.price} MAD)</option>`).join('')}
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">2. Carte Graphique (GPU)</label>
-                    <select id="builder-gpu" onchange="calculateBuilderTotal()" class="w-full bg-gray-900 border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:border-neonCyan outline-none">
-                        ${builderData.gpu.map(item => `<option value="${item.price}">${item.name} (+${item.price} MAD)</option>`).join('')}
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-gray-300 mb-1">3. Mémoire RAM</label>
-                    <select id="builder-ram" onchange="calculateBuilderTotal()" class="w-full bg-gray-900 border border-gray-700 rounded-xl p-2.5 text-xs text-white focus:border-neonCyan outline-none">
-                        ${builderData.ram.map(item => `<option value="${item.price}">${item.name} (+${item.price} MAD)</option>`).join('')}
-                    </select>
-                </div>
-            `;
-            calculateBuilderTotal();
+        function changeQty(idx, delta) {
+            cart[idx].qty += delta;
+            if(cart[idx].qty <= 0) cart.splice(idx, 1);
+            updateCartUI();
         }
 
-        function calculateBuilderTotal() {
-            const cpu = parseInt(document.getElementById('builder-cpu').value) || 0;
-            const gpu = parseInt(document.getElementById('builder-gpu').value) || 0;
-            const ram = parseInt(document.getElementById('builder-ram').value) || 0;
-            const basePrice = 2500; // Case, PSU, Motherboard base
-
-            const total = basePrice + cpu + gpu + ram;
-            document.getElementById('builder-total-price').innerText = `${total.toLocaleString()} MAD`;
-        }
-
-        function resetBuilder() {
-            document.getElementById('builder-cpu').selectedIndex = 0;
-            document.getElementById('builder-gpu').selectedIndex = 0;
-            document.getElementById('builder-ram').selectedIndex = 0;
-            calculateBuilderTotal();
-            showToast("Configuration réinitialisée");
-        }
-
-        // WhatsApp Checkout Integrations
-        function openWhatsApp(message) {
-            const phone = "212600000000";
-            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
-
-        function quickBuyWhatsApp(productId) {
-            const product = productsDatabase.find(p => p.id === productId);
-            const msg = `Bonjour Store Gamer Maroc, je souhaite commander directement:\n- ${product.name}\nPrix: ${product.price} MAD`;
-            openWhatsApp(msg);
-        }
-
-        function orderBuilderWhatsApp() {
-            const cpuText = document.getElementById('builder-cpu').options[document.getElementById('builder-cpu').selectedIndex].text;
-            const gpuText = document.getElementById('builder-gpu').options[document.getElementById('builder-gpu').selectedIndex].text;
-            const ramText = document.getElementById('builder-ram').options[document.getElementById('builder-ram').selectedIndex].text;
-            const total = document.getElementById('builder-total-price').innerText;
-
-            const msg = `Bonjour Store Gamer Maroc, je souhaite commander un PC sur-mesure personnalisé:\n- CPU: ${cpuText}\n- GPU: ${gpuText}\n- RAM: ${ramText}\n\nTotal Estimé: ${total}`;
-            openWhatsApp(msg);
+        function toggleCart(openOnly = false) {
+            const drawer = document.getElementById('cartDrawer');
+            if(openOnly) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
         }
 
         function checkoutWhatsApp() {
             if(cart.length === 0) {
-                showToast("Votre panier est vide!");
+                alert('Votre panier est vide!');
                 return;
             }
 
-            let msg = "Bonjour Store Gamer, je souhaite valider la commande de mon panier:\n\n";
+            let msg = "Bonjour StoreGamer, je souhaite commander les articles suivants:%0A";
+            let total = 0;
             cart.forEach(item => {
-                msg += `• ${item.name} x${item.quantity} - ${(item.price * item.quantity).toLocaleString()} MAD\n`;
+                msg += `- ${item.title} (x${item.qty}) : ${item.price * item.qty} MAD%0A`;
+                total += item.price * item.qty;
             });
-            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            msg += `\nTotal: ${subtotal.toLocaleString()} MAD\nLivraison: Maroc`;
+            msg += `%0ATotal Général: ${total} MAD`;
 
-            openWhatsApp(msg);
+            window.open(`https://wa.me/212688400333?text=${msg}`, '_blank');
         }
 
-        // Toast Notification Helper
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toast-message').innerText = message;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                card.style.display = title.includes(query) ? 'flex' : 'none';
+            });
         }
     </script>
 </body>
