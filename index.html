@@ -1,431 +1,96 @@
-<!DOCTYPE html>
-<html lang="fr" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Store Gamer — Matériel Gaming & PC sur Mesure au Maroc</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#f0f5ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            900: '#0f172a',
-                            accent: '#22c55e'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-red-500 selection:text-white">
+import React from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-red-950/60 border-b border-red-500/20 text-xs py-2 px-4 text-center text-red-200 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="flex items-center gap-2">
-            <span class="bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Promo Store Gamer</span>
-            <span>Livraison partout au Maroc — Offerte dès 1,500 MAD !</span>
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-gray-950 text-white font-sans">
+      <Head>
+        <title>StoreGamer — PC Gamer & Matériel Gaming au Maroc</title>
+        <meta name="description" content="Achat PC Gamer, composants, moniteurs et setup complet au Maroc. Livraison partout au Maroc." />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      {/* Top Bar */}
+      <div className="bg-gray-900 border-b border-gray-800 text-xs py-2 px-4 text-gray-400">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+          <p>🚚 Livraison partout au Maroc — offerte dès 1 500 MAD</p>
+          <div className="flex items-center gap-6">
+            <Link href="/suivre-commande" className="hover:text-white transition">Suivre ma commande</Link>
+            <Link href="/support" className="hover:text-white transition">Support technique</Link>
+            <a href="tel:+212600000000" className="hover:text-white transition">+212 6 00 00 00 00</a>
+          </div>
         </div>
-        <div class="hidden md:flex gap-4 items-center">
-            <a href="https://wa.me/212688400333" target="_blank" class="hover:text-white transition flex items-center gap-1">
-                <i class="fab fa-whatsapp text-green-400"></i> +212 6 88 40 03 33
-            </a>
-            <span>|</span>
-            <span>Oujda, Maroc</span>
+      </div>
+
+      {/* Header / Navigation */}
+      <header className="sticky top-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-6">
+          <Link href="/" className="flex items-center">
+            <span className="text-2xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
+              STORE<span className="text-white">GAMER</span>
+            </span>
+          </Link>
+
+          <div className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <Link href="/configurateur-pc-gamer" className="hover:text-purple-400 transition">Configurateur PC</Link>
+            <Link href="/boutique?promotion=1" className="hover:text-purple-400 transition text-red-400">Promotions</Link>
+            <Link href="/boutique?sort=newest" className="hover:text-purple-400 transition">Nouveautés</Link>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <Link href="/compte" aria-label="Mon compte" className="p-2 hover:bg-gray-800 rounded-full transition">
+              👤
+            </Link>
+            <Link href="/favoris" aria-label="Mes favoris" className="p-2 hover:bg-gray-800 rounded-full transition relative">
+              ❤️ <span className="absolute top-0 right-0 bg-purple-600 text-xs rounded-full px-1">0</span>
+            </Link>
+          </div>
         </div>
+
+        {/* Main Categories Navigation Menu */}
+        <nav className="bg-gray-900 border-t border-gray-800 hidden lg:block" aria-label="Navigation principale">
+          <ul className="max-w-7xl mx-auto px-4 flex justify-between text-sm font-semibold py-3 text-gray-300">
+            <li><Link href="/categorie/pc-gamer" className="hover:text-white transition">PC Gamer</Link></li>
+            <li><Link href="/pc-par-jeux" className="hover:text-white transition">PC par Jeux</Link></li>
+            <li><Link href="/pc-intelligence-artificielle" className="hover:text-white transition">PC Intelligence Artificielle</Link></li>
+            <li><Link href="/categorie/full-setup" className="hover:text-white transition">Setup Complet</Link></li>
+            <li><Link href="/categorie/pc-portables" className="hover:text-white transition">PC Portables</Link></li>
+            <li><Link href="/categorie/composants" className="hover:text-white transition">Composants</Link></li>
+            <li><Link href="/categorie/mobilier-bureau" className="hover:text-white transition">Chaise & Bureau</Link></li>
+            <li><Link href="/categorie/ecrans-gaming" className="hover:text-white transition">Moniteurs</Link></li>
+          </ul>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <main id="contenu" className="max-w-7xl mx-auto px-4 py-16">
+        <div className="text-center space-y-6">
+          <span className="inline-block bg-purple-900/50 border border-purple-700 text-purple-300 text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold">
+            Le Spécialiste Gaming au Maroc
+          </span>
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
+            Préparez Votre Prochaine <span className="text-purple-500">Victoire</span>
+          </h1>
+          <p className="max-w-2xl mx-auto text-gray-400 text-lg">
+            Découvrez notre sélection de PC Gamer sur-mesure, composants haut de gamme, et setups complets pour le gaming, le streaming et la création.
+          </p>
+          <div className="flex justify-center gap-4 pt-4">
+            <Link href="/boutique" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-purple-900/50 transition">
+              Explorer la Boutique
+            </Link>
+            <Link href="/configurateur-pc-gamer" className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-bold transition">
+              Créer mon PC
+            </Link>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 border-t border-gray-800 mt-20 py-8 text-center text-sm text-gray-500">
+        <p>&copy; 2026 StoreGamer. Tous droits réservés. Livraison partout au Maroc.</p>
+      </footer>
     </div>
-
-    <!-- Main Navigation Header -->
-    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-            
-            <!-- Logo Store Gamer -->
-            <a href="#" class="flex items-center gap-2 text-2xl font-black tracking-wider text-white">
-                <div class="w-10 h-10 bg-gradient-to-tr from-red-600 to-orange-500 rounded-xl flex items-center justify-center shadow-lg shadow-red-600/30">
-                    <i class="fas fa-gamepad text-white text-xl"></i>
-                </div>
-                <span>STORE<span class="text-red-500">GAMER</span></span>
-            </a>
-
-            <!-- Search Bar -->
-            <div class="hidden md:flex flex-1 max-w-md relative">
-                <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Rechercher un PC, GPU, Écran..." class="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 pl-10 pr-4 text-sm text-slate-200 focus:outline-none focus:border-red-500 transition">
-                <i class="fas fa-search absolute left-3 top-3 text-slate-400 text-sm"></i>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex items-center gap-3">
-                <a href="https://wa.me/212688400333" target="_blank" class="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-lg shadow-green-600/20">
-                    <i class="fab fa-whatsapp text-lg"></i>
-                    <span>Contact WhatsApp</span>
-                </a>
-
-                <button onclick="toggleCart()" class="relative bg-slate-800 hover:bg-slate-700 text-white p-2.5 rounded-xl border border-slate-700 transition">
-                    <i class="fas fa-shopping-bag text-lg"></i>
-                    <span id="cartCount" class="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">0</span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
-
-        <!-- Hero Banner Style SetupGame (Exact User Image Design) -->
-        <section class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-slate-900 via-zinc-900 to-black border border-red-600/30 p-6 md:p-12 shadow-2xl my-6">
-            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-                
-                <!-- Left Side: Gaming Setup Image -->
-                <div class="relative w-full lg:w-1/2 flex justify-center">
-                    <div class="w-72 h-72 md:w-96 md:h-96 bg-red-600/20 rounded-full blur-3xl absolute -z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1612287233002-b1d2e8b2a8d5?auto=format&fit=crop&w=1200&q=80" alt="Setup Gaming Store Gamer Original" class="rounded-2xl shadow-2xl border border-red-500/20 object-cover w-full max-w-lg">
-                </div>
-
-                <!-- Right Side: Content & Features -->
-                <div class="space-y-6 max-w-xl text-right lg:text-left rtl">
-                    <h1 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-wide">
-                        ÉQUIPEZ-VOUS <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">PASSEZ AU NIVEAU SUPÉRIEUR</span>
-                    </h1>
-                    <p class="text-slate-300 text-sm md:text-base font-medium">
-                        ACCESSOIRES PREMIUM. PERFORMANCE MAXIMALE.
-                    </p>
-
-                    <!-- Features Icons Grid -->
-                    <div class="grid grid-cols-3 gap-4 pt-2 border-t border-slate-800 text-center">
-                        <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800">
-                            <i class="fas fa-crosshairs text-red-500 text-xl mb-1"></i>
-                            <div class="text-[11px] font-bold text-slate-200 uppercase">Précision maîtrisée</div>
-                        </div>
-                        <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800">
-                            <i class="fas fa-shield-alt text-red-500 text-xl mb-1"></i>
-                            <div class="text-[11px] font-bold text-slate-200 uppercase">Conçu pour durer</div>
-                        </div>
-                        <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800">
-                            <i class="fas fa-bolt text-red-500 text-xl mb-1"></i>
-                            <div class="text-[11px] font-bold text-slate-200 uppercase">Performance garantie</div>
-                        </div>
-                    </div>
-
-                    <!-- Action Button -->
-                    <div class="pt-2">
-                        <a href="https://wa.me/212688400333?text=Bonjour%20Store%20Gamer,%20je%20suis%20intéressé%20par%20les%20accessoires%20gaming" target="_blank" class="inline-flex items-center justify-between w-full sm:w-auto bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 text-white px-8 py-3.5 rounded-xl font-bold shadow-lg shadow-red-600/30 transition gap-4">
-                            <span>JOUEZ MIEUX. GAGNEZ PLUS.</span>
-                            <i class="fas fa-chevron-right text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Custom PC Configurator -->
-        <section class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
-            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-slate-800 pb-4 gap-2">
-                <div>
-                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                        <i class="fas fa-tools text-red-500"></i> Configurateur PC Gamer sur Mesure — Store Gamer
-                    </h2>
-                    <p class="text-slate-400 text-sm">Choisissez vos composants et calculez le prix instantanément.</p>
-                </div>
-                <span class="bg-red-950/50 text-red-300 text-xs font-semibold px-3 py-1 rounded-lg border border-red-700/50">Montage & Test Gratuits</span>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-4">
-                <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">1. Carte Graphique (GPU)</label>
-                    <select id="gpuSelect" onchange="updateConfigPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-red-500">
-                        <option value="3500">NVIDIA RTX 3060 12GB (+3,500 MAD)</option>
-                        <option value="5200" selected>NVIDIA RTX 4060 Ti 8GB (+5,200 MAD)</option>
-                        <option value="8900">NVIDIA RTX 4070 SUPER 12GB (+8,900 MAD)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">2. Processeur (CPU)</label>
-                    <select id="cpuSelect" onchange="updateConfigPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-red-500">
-                        <option value="1800">Intel Core i5-12400F (+1,800 MAD)</option>
-                        <option value="3200" selected>Intel Core i5-13600KF (+3,200 MAD)</option>
-                        <option value="4500">AMD Ryzen 7 7800X3D (+4,500 MAD)</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold uppercase text-slate-400 mb-2">3. Mémoire RAM</label>
-                    <select id="ramSelect" onchange="updateConfigPrice()" class="w-full bg-slate-800 border border-slate-700 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-red-500">
-                        <option value="600">16GB DDR4 3200MHz (+600 MAD)</option>
-                        <option value="1200" selected>32GB DDR5 6000MHz (+1,200 MAD)</option>
-                        <option value="2200">64GB DDR5 6000MHz (+2,200 MAD)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row items-center justify-between bg-slate-950 p-4 rounded-xl border border-slate-800 gap-4">
-                <div>
-                    <span class="text-xs text-slate-400">Total Configuration Estimé:</span>
-                    <div id="configPriceDisplay" class="text-2xl font-black text-green-400">9,600 MAD</div>
-                </div>
-                <button onclick="addCustomPCToCart()" class="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-bold transition flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp"></i> Commander cette config via WhatsApp
-                </button>
-            </div>
-        </section>
-
-        <!-- Product Catalogue Grid -->
-        <section class="space-y-6">
-            <div class="flex items-center justify-between">
-                <h2 class="text-2xl font-bold text-white">Nos Produits & Setups Gaming</h2>
-                <span class="text-slate-400 text-sm">Catalogue Store Gamer</span>
-            </div>
-
-            <div id="productGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                <!-- Product 1 -->
-                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-500/50 transition">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=400&q=80" alt="PC Starter" class="w-full h-44 object-cover rounded-xl mb-4">
-                        <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">PC Gamer</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Setup Gamer Starter i5</h3>
-                        <p class="text-xs text-slate-400 mt-1">Intel i5-12400F, GTX 1650 4GB, 16GB RAM, 512GB SSD</p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-                        <span class="text-xl font-black text-green-400">5,499 MAD</span>
-                        <button onclick="addToCart('Setup Gamer Starter i5', 5499)" class="bg-red-600 hover:bg-red-700 text-white p-2.5 rounded-xl transition">
-                            <i class="fas fa-cart-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-500/50 transition">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=400&q=80" alt="Ecran Gaming" class="w-full h-44 object-cover rounded-xl mb-4">
-                        <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Moniteur</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Ecran Gaming 27" 165Hz</h3>
-                        <p class="text-xs text-slate-400 mt-1">IPS 1ms Full HD 1080p, FreeSync & G-Sync</p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-                        <span class="text-xl font-black text-green-400">1,899 MAD</span>
-                        <button onclick="addToCart('Ecran Gaming 27 165Hz', 1899)" class="bg-red-600 hover:bg-red-700 text-white p-2.5 rounded-xl transition">
-                            <i class="fas fa-cart-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-500/50 transition">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1616588589676-63b3d7846232?auto=format&fit=crop&w=400&q=80" alt="RTX 4060 Ti" class="w-full h-44 object-cover rounded-xl mb-4">
-                        <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Composant</span>
-                        <h3 class="text-lg font-bold text-white mt-1">NVIDIA RTX 4060 Ti 8GB</h3>
-                        <p class="text-xs text-slate-400 mt-1">MSI Ventus 2X Black OC GDDR6</p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-                        <span class="text-xl font-black text-green-400">4,899 MAD</span>
-                        <button onclick="addToCart('NVIDIA RTX 4060 Ti 8GB', 4899)" class="bg-red-600 hover:bg-red-700 text-white p-2.5 rounded-xl transition">
-                            <i class="fas fa-cart-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col justify-between hover:border-red-500/50 transition">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=400&q=80" alt="Chaise Gamer" class="w-full h-44 object-cover rounded-xl mb-4">
-                        <span class="text-[10px] font-bold text-red-400 uppercase tracking-widest">Mobilier</span>
-                        <h3 class="text-lg font-bold text-white mt-1">Chaise Gaming Ergonomique</h3>
-                        <p class="text-xs text-slate-400 mt-1">Coussin lombaire, accoudoirs 3D, inclinable 180°</p>
-                    </div>
-                    <div class="mt-4 flex items-center justify-between pt-3 border-t border-slate-800">
-                        <span class="text-xl font-black text-green-400">1,749 MAD</span>
-                        <button onclick="addToCart('Chaise Gaming Ergonomique', 1749)" class="bg-red-600 hover:bg-red-700 text-white p-2.5 rounded-xl transition">
-                            <i class="fas fa-cart-plus"></i>
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Slide-over Cart Drawer -->
-    <div id="cartDrawer" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex justify-end">
-        <div class="w-full max-w-md bg-slate-900 h-full p-6 flex flex-col justify-between border-l border-slate-800 shadow-2xl">
-            <div>
-                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                    <h3 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i class="fas fa-shopping-bag text-red-500"></i> Panier Store Gamer
-                    </h3>
-                    <button onclick="toggleCart()" class="text-slate-400 hover:text-white text-xl">&times;</button>
-                </div>
-
-                <div class="mt-4 bg-slate-950 p-3 rounded-xl border border-slate-800 text-xs text-slate-300">
-                    <span id="shippingText">Livraison offerte dès 1,500 MAD !</span>
-                    <div class="w-full bg-slate-800 h-2 rounded-full mt-2 overflow-hidden">
-                        <div id="shippingBar" class="bg-red-500 h-full w-0 transition-all duration-300"></div>
-                    </div>
-                </div>
-
-                <div id="cartItemsList" class="mt-6 space-y-4 max-h-[50vh] overflow-y-auto pr-2">
-                    <p class="text-slate-500 text-center py-8 text-sm">Votre panier est vide.</p>
-                </div>
-            </div>
-
-            <div class="border-t border-slate-800 pt-4 space-y-4">
-                <div class="flex items-center justify-between text-lg font-bold text-white">
-                    <span>Total:</span>
-                    <span id="cartTotalPrice" class="text-green-400 text-xl">0 MAD</span>
-                </div>
-
-                <button onclick="checkoutWhatsApp()" class="w-full bg-green-600 hover:bg-green-700 text-white py-3.5 rounded-xl font-bold shadow-lg shadow-green-600/20 transition flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-xl"></i> Passer la commande via WhatsApp
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 mt-20 py-12 text-slate-400 text-xs">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
-            <div class="space-y-3">
-                <div class="text-white font-bold text-lg">STORE GAMER</div>
-                <p>Le spécialiste du matériel Gaming & PC sur mesure au Maroc avec livraison rapide à domicile.</p>
-            </div>
-            <div>
-                <div class="text-white font-bold mb-3">Service Client</div>
-                <p>WhatsApp: +212 6 88 40 03 33</p>
-                <p>Localisation: Oujda, Maroc</p>
-            </div>
-            <div>
-                <div class="text-white font-bold mb-3">Livraison</div>
-                <p>Oujda, Nador, Berkane, Casablanca, Rabat, Fès, Marrakech et partout au Maroc.</p>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-slate-800 text-center text-slate-500">
-            © 2026 Store Gamer. Tous droits réservés.
-        </div>
-    </footer>
-
-    <!-- Interactive JavaScript Engine -->
-    <script>
-        let cart = [];
-
-        function updateConfigPrice() {
-            const gpu = parseInt(document.getElementById('gpuSelect').value);
-            const cpu = parseInt(document.getElementById('cpuSelect').value);
-            const ram = parseInt(document.getElementById('ramSelect').value);
-            const total = gpu + cpu + ram;
-            document.getElementById('configPriceDisplay').innerText = total.toLocaleString() + ' MAD';
-        }
-
-        function addCustomPCToCart() {
-            const gpuText = document.getElementById('gpuSelect').options[document.getElementById('gpuSelect').selectedIndex].text;
-            const cpuText = document.getElementById('cpuSelect').options[document.getElementById('cpuSelect').selectedIndex].text;
-            const ramText = document.getElementById('ramSelect').options[document.getElementById('ramSelect').selectedIndex].text;
-            const price = parseInt(document.getElementById('gpuSelect').value) + parseInt(document.getElementById('cpuSelect').value) + parseInt(document.getElementById('ramSelect').value);
-
-            const textMsg = `Bonjour Store Gamer, je souhaite commander une configuration sur mesure:%0A- GPU: ${gpuText}%0A- CPU: ${cpuText}%0A- RAM: ${ramText}%0APrix Total: ${price} MAD`;
-            window.open(`https://wa.me/212688400333?text=${textMsg}`, '_blank');
-        }
-
-        function addToCart(title, price) {
-            const existing = cart.find(item => item.title === title);
-            if(existing) {
-                existing.qty += 1;
-            } else {
-                cart.push({ title, price, qty: 1 });
-            }
-            updateCartUI();
-            toggleCart(true);
-        }
-
-        function updateCartUI() {
-            const list = document.getElementById('cartItemsList');
-            const cartCount = document.getElementById('cartCount');
-            const cartTotalPrice = document.getElementById('cartTotalPrice');
-            const shippingBar = document.getElementById('shippingBar');
-
-            let total = 0;
-            let count = 0;
-
-            if(cart.length === 0) {
-                list.innerHTML = `<p class="text-slate-500 text-center py-8 text-sm">Votre panier est vide.</p>`;
-            } else {
-                list.innerHTML = cart.map((item, idx) => {
-                    total += item.price * item.qty;
-                    count += item.qty;
-                    return `
-                        <div class="flex items-center justify-between bg-slate-950 p-3 rounded-xl border border-slate-800">
-                            <div>
-                                <div class="text-sm font-semibold text-white">${item.title}</div>
-                                <div class="text-xs text-green-400">${item.price.toLocaleString()} MAD</div>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <button onclick="changeQty(${idx}, -1)" class="w-6 h-6 bg-slate-800 text-white rounded font-bold">-</button>
-                                <span class="text-sm font-bold text-white">${item.qty}</span>
-                                <button onclick="changeQty(${idx}, 1)" class="w-6 h-6 bg-slate-800 text-white rounded font-bold">+</button>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            cartCount.innerText = count;
-            cartTotalPrice.innerText = total.toLocaleString() + ' MAD';
-
-            let shipProgress = Math.min((total / 1500) * 100, 100);
-            shippingBar.style.width = shipProgress + '%';
-        }
-
-        function changeQty(idx, delta) {
-            cart[idx].qty += delta;
-            if(cart[idx].qty <= 0) cart.splice(idx, 1);
-            updateCartUI();
-        }
-
-        function toggleCart(openOnly = false) {
-            const drawer = document.getElementById('cartDrawer');
-            if(openOnly) {
-                drawer.classList.remove('hidden');
-            } else {
-                drawer.classList.toggle('hidden');
-            }
-        }
-
-        function checkoutWhatsApp() {
-            if(cart.length === 0) {
-                alert('Votre panier est vide!');
-                return;
-            }
-
-            let msg = "Bonjour Store Gamer, je souhaite commander les articles suivants:%0A";
-            let total = 0;
-            cart.forEach(item => {
-                msg += `- ${item.title} (x${item.qty}) : ${item.price * item.qty} MAD%0A`;
-                total += item.price * item.qty;
-            });
-            msg += `%0ATotal Général: ${total} MAD`;
-
-            window.open(`https://wa.me/212688400333?text=${msg}`, '_blank');
-        }
-
-        function searchProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.product-card');
-            cards.forEach(card => {
-                const title = card.querySelector('h3').innerText.toLowerCase();
-                card.style.display = title.includes(query) ? 'flex' : 'none';
-            });
-        }
-    </script>
-</body>
-</html>
+  );
+}
